@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Frige</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="Easy Fridge Logo" class="logo">
+            <img src="shoppingCart.svg" alt="Warenkorb" class="shopping-cart">
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Startseite</a>
+        <a href="#">Haushaltsgeräte</a>
+        <a href="#">Kühlen & Gefrieren</a>
+    </nav>
+
+    <div class="container">
+        <div class="product-images">
+            <img id="main-image" src="derkühlschrank.png" alt="Produktbild" class="main-image">
+            <div class="thumbnail-buttons">
+                <img src="derkühlschrank.png" alt="Bild 1" class="thumbnail" onclick="changeImage('derkühlschrank.png')">
+                <img src="innenansicht.png" alt="Bild 2" class="thumbnail" onclick="changeImage('innenansicht.png')">
+                <img src="seite.png" alt="Bild 3" class="thumbnail" onclick="changeImage('seite.png')">
+                <img src="schluss.png" alt="Bild 4" class="thumbnail" onClick="changeImage('schluss.png')">
+            </div>
+        </div>
+<div class="product-details">
+  <h1>Easy Fridge</h1>
+  <p class="price">2999,99 € <span class="old-price">3499,99 €</span></p>
+  <p class="description"></p>
+
+  <div class="extra-content">
+    <h3>Product Details</h3>
+    <p>Additional Details</p>
+  </div>
+
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+    </div>
+
+    <div class="additional-details-container">
+        <div class="additional-product-details">
+            <ul>
+               <u>
+                    <p> 
+                        Display Materials: </p>
+                    </u>  
+                <p>
+                    <li>
+                    Glass or plastic as substrate</p>
+                </li>
+                <p>
+                    <li>
+                    Liquid crystals (LCD) or organic materials (OLED)</p>
+                </li>
+                <p>
+                    <li>
+                    Conductive layers such as indium tin oxide (ITO)</p>
+                </li>
+                <p>
+                    <li>
+                    Polarizing filter to control the light</p>
+                </li>
+                <p>
+                    <li>
+                    LEDs or backlight for brightness</p>
+                </li>
+            
+            </ul>
+
+        </div>
+    </div>
+
+    <div id="cart-modal" class="cart-modal hidden">
+        <h3>Cart</h3>
+        <ul id="cart-items"></ul>
+        <p id="cart-total">Total: 0,00 €</p>
+        <button id="close-cart">Close</button>
+        <button class="checkout-btn">Zur Kasse</button>
+    </div>
+
+    <footer>
+        &copy; 2025 Quelle GmbH
+    </footer>
+
+    <script src="script.js">
+    </script>
+</body>
+</html>
+ 
