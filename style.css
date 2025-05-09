@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2e2e2e;
-    color: #f0f0f0;
+
 }
 
 header {
@@ -244,70 +244,4 @@ footer {
     border-color: #007bff;
     transform: scale(1.05);
 }
-.checkout-btn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-}
 
-.checkout-btn:hover {
-    background-color: #45a049;
-}
-.checkout-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #5a5a5a;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.checkout-container h2 {
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-#checkout-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-#checkout-list li {
-    padding: 10px;
-    border-bottom: 1px solid #888;
-    color: #ddd;
-}
-
-#total-price {
-    font-weight: bold;
-    font-size: 1.2em;
-    color: #ff6666;
-}
-
-.checkout-buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.checkout-buttons button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    background-color: #444;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.checkout-buttons button:hover {
-    background-color: #333;
-}

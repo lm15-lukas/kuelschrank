@@ -1,17 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const checkoutList = document.getElementById("checkout-list");
-  const totalPrice = document.getElementById("total-price");
+document.addEventListener('DOMContentLoaded', () => {
+  const cartList = document.getElementById('checkout-list');
+  const totalPriceElem = document.getElementById('total-price');
 
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const total = localStorage.getItem("total") || "0.00";
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let total = 0;
 
   cart.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = `${item.name} – ${item.price} €`;
-    checkoutList.appendChild(li);
+      const li = document.createElement('li');
+      li.textContent = `${item.name} - ${item.price.toFixed(2)} €`;
+      cartList.appendChild(li);
+      total += item.price;
   });
 
-  totalPrice.textContent = `${parseFloat(total).toFixed(2)} €`;
+  totalPriceElem.textContent = `${total.toFixed(2)} €`;
 });
-
-
