@@ -1,16 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const cartList = document.getElementById('checkout-list');
-  const totalPriceElem = document.getElementById('total-price');
+// Lese die Daten aus dem localStorage
+const cartData = JSON.parse(localStorage.getItem("cart"));
 
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let total = 0;
+if (cartData && cartData.items.length > 0) {
+    const checkoutItemsList = document.getElementById("checkout-cart-items");
+    const checkoutTotal = document.getElementById("checkout-cart-total");
 
-  cart.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = `${item.name} - ${item.price.toFixed(2)} €`;
-      cartList.appendChild(li);
-      total += item.price;
-  });
+    cartData.items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - ${item.price.toFixed(2)} €`;
+        checkoutItemsList.appendChild(li);
+    });
 
-  totalPriceElem.textContent = `${total.toFixed(2)} €`;
-});
+    checkoutTotal.textContent = `Gesamtsumme: ${cartData.total.toFixed(2)} €`;
+} else {
+    document.getElementById("checkout-cart-items").textContent = "Dein Warenkorb ist leer.";
+}
