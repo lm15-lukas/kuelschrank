@@ -13,13 +13,12 @@ const checkoutBtn = document.querySelector('.checkout-btn');
 let total = 0;
 let cart = [];
 
-// Warenkorb aus localStorage laden, wenn vorhanden
+// Warenkorb aus localStorage laden – nur wenn Elemente vorhanden sind
 const storedCart = JSON.parse(localStorage.getItem("cart"));
-if (storedCart && storedCart.items) {
+if (storedCart && storedCart.items && storedCart.items.length > 0) {
     cart = storedCart.items;
     total = storedCart.total;
 
-    // Anzeigen im Modal aktualisieren
     cart.forEach(item => {
         const li = document.createElement('li');
         li.textContent = `${item.name} - ${item.price.toFixed(2)} €`;
@@ -40,8 +39,11 @@ if (storedCart && storedCart.items) {
     });
 
     cartTotal.textContent = `Total: ${total.toFixed(2)} €`;
+} else {
+    cartTotal.textContent = `Total: 0,00 €`;
 }
 
+// Funktion zum Speichern im localStorage
 function saveCartToLocalStorage(items, total) {
     const cartData = {
         items,
@@ -50,13 +52,15 @@ function saveCartToLocalStorage(items, total) {
     localStorage.setItem("cart", JSON.stringify(cartData));
 }
 
+// Produkt zum Warenkorb hinzufügen
 addToCartBtn.addEventListener('click', () => {
     const itemName = "Easy Fridge";
     const itemPrice = 2999.99;
 
     const item = { name: itemName, price: itemPrice };
     cart.push(item);
-    saveCartToLocalStorage(cart, total + itemPrice);
+    total += itemPrice;
+    saveCartToLocalStorage(cart, total);
 
     const li = document.createElement('li');
     li.textContent = `${itemName} - ${itemPrice.toFixed(2)} €`;
@@ -75,20 +79,21 @@ addToCartBtn.addEventListener('click', () => {
     li.appendChild(removeBtn);
     cartItems.appendChild(li);
 
-    total += itemPrice;
     cartTotal.textContent = `Total: ${total.toFixed(2)} €`;
-
     cartModal.classList.remove('hidden');
 });
 
+// Warenkorb anzeigen/verstecken
 shoppingCartIcon.addEventListener('click', () => {
     cartModal.classList.toggle('hidden');
 });
 
+// Warenkorb schließen
 closeCartBtn.addEventListener('click', () => {
     cartModal.classList.add('hidden');
 });
 
+// Zur Checkout-Seite wechseln
 checkoutBtn.addEventListener("click", () => {
     window.location.href = "checkout.html";
 });

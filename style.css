@@ -92,7 +92,14 @@ nav a:hover {
     color: #ffffff;
     font-size: 2em;
 }
-
+.product-details h3 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 2em;
+}
+.additional-details{
+    color: #ffffff;
+}
 .price {
     color: #ff4d4d;
     font-size: 1.8em;
