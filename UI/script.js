@@ -1,3 +1,6 @@
+window.addEventListener('DOMContentLoaded', () => {
+    selectColor('grey');
+});
 function changeImage(imageSrc) {
     document.getElementById('main-image').src = imageSrc;
 }
@@ -13,7 +16,7 @@ const checkoutBtn = document.querySelector('.checkout-btn');
 let total = 0;
 let cart = [];
 
-// Warenkorb aus localStorage laden – nur wenn Elemente vorhanden sind
+// Warenkorb aus localStorage laden
 const storedCart = JSON.parse(localStorage.getItem("cart"));
 if (storedCart && storedCart.items && storedCart.items.length > 0) {
     cart = storedCart.items;
@@ -43,19 +46,14 @@ if (storedCart && storedCart.items && storedCart.items.length > 0) {
     cartTotal.textContent = `Total: 0,00 €`;
 }
 
-// Funktion zum Speichern im localStorage
 function saveCartToLocalStorage(items, total) {
-    const cartData = {
-        items,
-        total
-    };
+    const cartData = { items, total };
     localStorage.setItem("cart", JSON.stringify(cartData));
 }
 
-// Produkt zum Warenkorb hinzufügen
 addToCartBtn.addEventListener('click', () => {
     const itemName = "Easy Fridge";
-    const itemPrice =2974.99;
+    const itemPrice = 2974.99;
 
     const item = { name: itemName, price: itemPrice };
     cart.push(item);
@@ -83,26 +81,63 @@ addToCartBtn.addEventListener('click', () => {
     cartModal.classList.remove('hidden');
 });
 
-// Warenkorb anzeigen/verstecken
 shoppingCartIcon.addEventListener('click', () => {
     cartModal.classList.toggle('hidden');
 });
 
-// Warenkorb schließen
 closeCartBtn.addEventListener('click', () => {
     cartModal.classList.add('hidden');
 });
 
-// Zur Checkout-Seite wechseln
 checkoutBtn.addEventListener("click", () => {
     window.location.href = "checkout.html";
 });
+
+// Farb-Auswahl und Thumbnails
+function selectColor(color) {
+    const mainImage = document.getElementById("main-image");
+    const selectedColorText = document.getElementById("selected-color");
+    const thumbnailContainer = document.querySelector(".thumbnail-buttons");
+
+    // Thumbnails und Main-Bild definieren
+    let images = [];
+
+    if (color === "white") {
+        images = ["white1.png", "white2.png"];
+    } else if (color === "black") {
+        images = ["black1.png", "black2.png"];
+    } else if (color === "gray") {
+        images = ["derkühlschrank.png", "innenansicht.png", "seite.png", "schluss.png"];
+    }
+
+    // Hauptbild setzen
+    mainImage.src = images[0];
+
+    // Farbe anzeigen
+    selectedColorText.textContent = "Selected color: " + color.charAt(0).toUpperCase() + color.slice(1);
+
+    // Thumbnails neu generieren
+    thumbnailContainer.innerHTML = "";
+    images.forEach(image => {
+        const thumb = document.createElement("img");
+        thumb.src = image;
+        thumb.alt = "Thumbnail";
+        thumb.className = "thumbnail";
+        thumb.onclick = () => changeImage(image);
+        thumbnailContainer.appendChild(thumb);
+    });
+}
+
+// Farbkreise anklickbar machen
 document.querySelectorAll('.color-circle').forEach(circle => {
     circle.addEventListener('click', () => {
-      const color = circle.classList.contains('black') ? 'Black' :
-                    circle.classList.contains('white') ? 'White' :
-                    'Gray';
-      document.getElementById('selected-color').textContent = `Selected color: ${color}`;
+        if (circle.classList.contains('black')) selectColor('black');
+        else if (circle.classList.contains('white')) selectColor('white');
+        else if (circle.classList.contains('gray')) selectColor('gray');
     });
-  });
-  
+});
+
+// Optional: Grau als Standardfarbe beim Laden
+window.addEventListener('DOMContentLoaded', () => {
+    selectColor('gray');
+});

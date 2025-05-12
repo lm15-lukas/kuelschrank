@@ -7,7 +7,10 @@
 </head>
 <body>
     <header>
+
         <div class="header-content">
+            
+            <img src="" alt="">
             <img src="logo.png" alt="Easy Fridge Logo" class="logo">
             <img src="shoppingCart.svg" alt="Warenkorb" class="shopping-cart">
         </div>
@@ -33,13 +36,14 @@
   <h1>Easy Fridge</h1>
   <p class="price">2974,99 € <span class="old-price">3499,99 €</span></p>
   <p class="description"></p>
+  
+<div class="color-options">
+  <div class="color-circle black" onclick="selectColor('black')"></div>
+  <div class="color-circle white" onclick="selectColor('white')"></div>
+  <div class="color-circle gray" onclick="selectColor('gray')"></div>
+</div>
+<p id="selected-color" style="color:#ccc; font-style:italic; margin-top:10px;">Selected color: None</p>
 
-  <div class="color-options">
-    <div class="color-circle black"></div>
-    <div class="color-circle white"></div>
-    <div class="color-circle gray"></div>
-  </div>
-  <p id="selected-color" style="color:#ccc; font-style:italic; margin-top:10px;">Selected color: None</p>
 
   
   <div class="extra-content">
@@ -81,8 +85,18 @@
                 </li>
             
             </ul>
-
+   <div class="social-container">
+    <h1>Our Socials</h1>
+    
+        <img src="facebook.png" alt="facebook logo" class="social-links">
+    
+    <a href="https://www.instagram.com/easy_fridge_gmbh/" target="_blank">
+        <img src="instagram.png" alt="instagram logo" class="social-links">
+        </a>
+        <img src="x.png" alt="x logo" class="social-links">
         </div>
+        </div>
+             
     </div>
 
     <div id="cart-modal" class="cart-modal hidden">
