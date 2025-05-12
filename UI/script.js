@@ -55,7 +55,7 @@ function saveCartToLocalStorage(items, total) {
 // Produkt zum Warenkorb hinzufügen
 addToCartBtn.addEventListener('click', () => {
     const itemName = "Easy Fridge";
-    const itemPrice = 2999.99;
+    const itemPrice =2974.99;
 
     const item = { name: itemName, price: itemPrice };
     cart.push(item);
@@ -97,3 +97,12 @@ closeCartBtn.addEventListener('click', () => {
 checkoutBtn.addEventListener("click", () => {
     window.location.href = "checkout.html";
 });
+document.querySelectorAll('.color-circle').forEach(circle => {
+    circle.addEventListener('click', () => {
+      const color = circle.classList.contains('black') ? 'Black' :
+                    circle.classList.contains('white') ? 'White' :
+                    'Gray';
+      document.getElementById('selected-color').textContent = `Selected color: ${color}`;
+    });
+  });
+  

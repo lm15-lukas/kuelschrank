@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout</title>
+  <link rel="stylesheet" href="checkout.css" />
+</head>
+<body>
+  <header>
+    <img src="./Bilder/facebook.png">
+    <img src="./Bilder/instagram.png">
+    <img src="./Bilder/X.png">
+    <h1>Checkout</h1>
+  </header>
+
+  <main class="checkout-container">
+    <h2>Your Shopping Cart</h2>
+    <ul id="checkout-cart-items" class="cart-items"></ul>
+    <p id="checkout-cart-total" class="total-price">Total: €0.00</p>
+
+    <div class="buttons">
+      <button class="checkout-btn" onclick="alert('Thank you for your purchase!')">Pay</button>
+      <button class="back-btn" onclick="window.history.back()">Back</button>
+    </div>
+  </main>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

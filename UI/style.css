@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -113,10 +117,12 @@ nav a:hover {
 }
 
 .description {
-    margin: 25px 0;
-    color: #dddddd;
-    line-height: 1.6;
+  padding: 10px 0;
+  color: #cccccc;
+  font-size: 1em;
+  line-height: 1.6;
 }
+
 
 .add-to-cart {
     background-color: #292929;
@@ -252,3 +258,37 @@ footer {
     transform: scale(1.05);
 }
 
+.color-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .color-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .color-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
+  
+  
+  .color-circle.black {
+    background-color: #000;
+  }
+  
+  .color-circle.white {
+    background-color: #fff;
+    border: 2px solid #888;
+  }
+  
+  .color-circle.gray {
+    background-color: #888;
+  }
+  
